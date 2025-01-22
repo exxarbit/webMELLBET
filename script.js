@@ -12,21 +12,32 @@ document.getElementById('saveButton').addEventListener('click', function() {
     document.getElementById('inputContainer').style.display = 'none';
     document.getElementById('newPageContainer').style.display = 'block';
 
-    // Отобразить номер партии в углу контейнера
-    document.getElementById('partyDisplay').textContent = partyNumber; 
+    // Отобразить номер партии в контейнере
+    document.getElementById('partyDisplay').textContent = ` ${partyNumber}`;
     errorMessage.style.display = 'none'; // Скрываем сообщение об ошибке
 });
 
+// Переменная для отслеживания состояния сигнала
+let signalReceived = false;
+
 // Обработчик события для кнопки "Получить сигнал"
 document.getElementById('signalButton').addEventListener('click', function() {
+    if (signalReceived) {
+        alert('Пожалуйста, введите новую партию.'); // Показываем предупреждение
+        return; // Прерываем выполнение функции
+    }
+
     const suits = ['Червы', 'Бубны', 'Трефы', 'Пики']; // Масти карт
     const randomSuit = suits[Math.floor(Math.random() * suits.length)]; // Случайная масть
-    document.getElementById('signalText').textContent = `Диллер получит карту (масть): ${randomSuit}`; // Обновляем текст
+    document.getElementById('signalText').textContent = `Дилер получит карту (масть): ${randomSuit}`; // Обновляем текст
     document.getElementById('signalText').style.display = 'block'; // Показать текст
+
+    // Скрыть кнопку "Получить сигнал" и показать кнопку "Новая партия"
+    document.getElementById('signalButton').style.display = 'none'; // Скрыть кнопку "Получить сигнал"
     document.getElementById('newPartyButton').style.display = 'block'; // Показать кнопку "Новая партия"
 
-    // Блокируем кнопку "Получить сигнал"
-    document.getElementById('signalButton').disabled = true; 
+    // Устанавливаем флаг, что сигнал был получен
+    signalReceived = true; 
 });
 
 // Обработчик события для кнопки "Новая партия"
@@ -38,6 +49,10 @@ document.getElementById('newPartyButton').addEventListener('click', function() {
     document.getElementById('newPartyButton').style.display = 'none'; // Скрыть кнопку "Новая партия"
     document.getElementById('errorMessage').style.display = 'none'; // Скрыть сообщение об ошибке
 
-    // Разблокируем кнопку "Получить сигнал" снова
-    document.getElementById('signalButton').disabled = false; 
+    // Показать кнопку "Получить сигнал" снова
+    document.getElementById('signalButton').style.display = 'block'; 
+    document.getElementById('signalButton').disabled = false; // Разблокируем кнопку "Получить сигнал"
+
+    // Сбрасываем состояние сигнала
+    signalReceived = false; 
 });
