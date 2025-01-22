@@ -3,14 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telegram WebApp</title>
+    <title>Ввод номера партии</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Добро пожаловать в наш WebApp!</h1>
-        <p>Это пример приложения для Telegram.</p>
-    </div>
-    <script src="script.js"></script>
+
+<div class="container" id="inputContainer">
+    <h1>Введите номер партии</h1>
+    <input type="text" id="partyNumber" placeholder="Номер партии">
+    <p id="errorMessage" style="color: red; display: none;">Пожалуйста, введите номер партии от 1 до 400.</p> <!-- Сообщение об ошибке -->
+    <button id="saveButton">Сохранить</button>
+</div>
+
+<div class="container" id="newPageContainer" style="display: none;">
+    <p id="partyDisplay" class="party-number"></p> <!-- Добавлен класс для стилизации -->
+    <p id="signalText" style="display: none;"></p> <!-- Текст, который будет отображаться -->
+    <button id="signalButton">Получить сигнал</button> <!-- Кнопка для получения сигнала -->
+    <button id="newPartyButton" style="display: none;">Новая партия</button> <!-- Кнопка для создания новой партии -->
+</div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
