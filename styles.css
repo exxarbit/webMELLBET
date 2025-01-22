@@ -1,13 +1,62 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background-color: black; /* Устанавливаем черный фон */
-    color: white; /* Устанавливаем белый цвет текста */
-    font-family: Arial, sans-serif; /* Шрифт */
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     margin: 0;
-    padding: 20px;
-    text-align: center;
+    background-color: black; /* Черный фон для всей страницы */
+    color: white; /* Белый текст для всего body */
 }
 
 .container {
-    max-width: 600px;
-    margin: auto;
+    background-color: white; /* Белый фон для контейнера ввода */
+    color: black; /* Черный текст для контейнера, чтобы он был видим на белом фоне */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%; /* Установите ширину контейнера */
+    max-width: 800px; /* Увеличьте максимальную ширину контейнера до 800px */
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px 0; /* Отступ для кнопок */
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Стили для номера партии */
+.party-number {
+    margin-bottom: 20px; /* Отступ снизу, чтобы отделить от других элементов */
+    font-size: 18px; /* Размер шрифта */
+    font-weight: bold; /* Жирный шрифт */
+    color: black; /* Черный цвет текста */
+}
+
+/* Стили для отображения номера партии */
+.party-number::before {
+    content: '№'; /* Добавление символа "№" перед номером */
 }
