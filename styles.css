@@ -14,14 +14,23 @@ body {
 }
 
 .container {
-    background-color: white; /* Белый фон для контейнера ввода */
-    color: black; /* Черный текст для контейнера, чтобы он был видим на белом фоне */
+    background-color: white; 
+    color: black; 
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 90%; /* Установите ширину контейнера */
-    max-width: 800px; /* Увеличьте максимальную ширину контейнера до 800px */
+    text-align: center; /* Центрируем текст и кнопки */
+    width: 90%; 
+    max-width: 800px; 
+    margin: auto; /* Центрируем контейнер на странице */
+}
+
+h1 {
+    background-color: rgba(0, 0, 0, 0.7); /* Темный фон с 70% прозрачностью */
+    color: white; /* Белый цвет текста */
+    padding: 10px; /* Отступы вокруг текста */
+    border-radius: 5px; /* Закругленные углы */
+    display: inline-block; /* Делаем заголовок блочным элементом для отступов */
 }
 
 input[type="text"] {
@@ -59,4 +68,51 @@ button:hover {
 /* Стили для отображения номера партии */
 .party-number::before {
     content: '№'; /* Добавление символа "№" перед номером */
+}
+
+#newPartyButton {
+    display: none; /* Скрыто по умолчанию */
+    margin: 10px 0; /* Отступы */
+}
+
+#signalContainer {
+    position: relative; /* Устанавливаем позиционирование для контейнера */
+    padding: 20px; /* Отступы вокруг текста */
+    background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный фон для контейнера */
+    border-radius: 15px; /* Скругления углов контейнера */
+    margin: 20px auto; /* Центрируем контейнер */
+    width: 80%; /* Ширина контейнера */
+    max-width: 600px; /* Максимальная ширина контейнера */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень для контейнера */
+}
+
+#signalText {
+    font-size: 24px; /* Размер шрифта */
+    color: black; /* Цвет текста */
+    margin: 0; /* Убираем отступы для параграфа */
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px; /* Уменьшаем отступы */
+    }
+
+    input[type="text"], button {
+        font-size: 14px; /* Уменьшаем размер шрифта */
+    }
+
+    #signalText {
+        font-size: 20px; /* Уменьшаем размер шрифта для сигнала */
+    }
+}
+
+@media (max-width: 400px) {
+    .container {
+        width: 95%; /* Увеличиваем ширину контейнера на очень маленьких экранах */
+    }
+
+    button {
+        padding: 8px 15px; /* Уменьшаем отступы для кнопок */
+    }
 }
