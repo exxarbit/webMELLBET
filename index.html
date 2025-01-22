@@ -4,22 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ввод номера партии</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Подключение вашего файла CSS -->
+    <style>
+        body {
+            background-color: #0a0f1e; /* Темный фон */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        .input-form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .input-form h1 {
+            color: white; /* Белый цвет текста */
+            margin-bottom: 20px;
+        }
+
+        .input-form input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .input-form button {
+            background-color: #0a0f1e; /* Цвет кнопки */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .input-form button:hover {
+            background-color: #141929; /* Изменение цвета при наведении */
+        }
+
+        /* Стили для сообщения об ошибке */
+        #errorMessage {
+            color: red;
+            display: none;
+        }
+    </style>
 </head>
 <body>
 
-<div class="container" id="inputContainer">
+<div class="input-form" id="inputContainer">
     <h1>Введите номер партии</h1>
-    <input type="text" id="partyNumber" placeholder="Номер партии">
-    <p id="errorMessage" style="color: red; display: none;">Пожалуйста, введите номер партии от 1 до 400.</p> <!-- Сообщение об ошибке -->
+    <input type="text" id="partyNumber" placeholder="Номер партии" required>
+    <p id="errorMessage">Пожалуйста, введите номер партии от 1 до 400.</p>
     <button id="saveButton">Сохранить</button>
 </div>
 
-<div class="container" id="newPageContainer" style="display: none;">
-    <p id="partyDisplay" class="party-number"></p> <!-- Добавлен класс для стилизации -->
-    <p id="signalText" style="display: none;"></p> <!-- Текст, который будет отображаться -->
-    <button id="signalButton">Получить сигнал</button> <!-- Кнопка для получения сигнала -->
-    <button id="newPartyButton" style="display: none;">Новая партия</button> <!-- Кнопка для создания новой партии -->
+<div class="input-form" id="newPageContainer" style="display: none;">
+    <p id="partyDisplay" class="party-number"></p>
+    <div id="signalContainer">
+        <p id="signalText" style="display: none;"></p>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <button id="signalButton">Получить сигнал</button>
+        <button id="newPartyButton" style="display: none;">Новая партия</button>
+    </div>
 </div>
 
 <script src="script.js"></script>
