@@ -1,0 +1,13 @@
+body {
+    background-color: black; /* Устанавливаем черный фон */
+    color: white; /* Устанавливаем белый цвет текста */
+    font-family: Arial, sans-serif; /* Шрифт */
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+}
